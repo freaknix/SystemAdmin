@@ -19,7 +19,7 @@ cd $droot
 find $droot*/httpdocs -type f -name social.png -exec file {} \;| grep PHP > $log
 
 if [ -s "$log" ]; then
-   cat $log| mail -s "CryptPHP Infected domains on Apollo" -a cryptphp.txt sa-group@freezone.co.uk
+   cat $log| mail -s "CryptPHP Infected domains on Apollo" -a cryptphp.txt emailaddresshere
 
 fi
 
