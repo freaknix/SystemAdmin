@@ -1,0 +1,11 @@
+#!/bin/bash
+d=`date | awk {'print $3'}`
+y=`date | awk '{print $6}'`
+m=`date +%m`
+
+if [ $d -lt 10 ]
+then
+   scp -i /home/{locationofkey} /var/spool/asterisk/monitor/$y/$m/0$d/* {destinationserver}:{destinationdrive}
+else
+   scp -i /home/{locationofkey} /var/spool/asterisk/monitor/$y/$m/$d/* {destinationserver}:{destinationdrive}
+fi
