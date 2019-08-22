@@ -1,0 +1,22 @@
+https://www.jeffgeerling.com/blog/2018/updating-all-your-servers-ansible
+
+# Upgrade all the Ubuntu servers.
+ansible ubuntu -m apt -a "upgrade=yes update_cache=yes" -b
+
+# Upgrade all the Ubuntu servers.
+ansible debian -m apt -a "upgrade=yes update_cache=yes" -b
+
+# Upgrade all the CentOS servers.
+ansible centos -m yum -a "name=* state=latest" -b
+
+# Upgrade all the Fedora servers.
+ansible fedora -m dnf -a "name=* state=latest" -b
+Then I can reboot all servers with ansible all -a "reboot" -s
+
+---------------------------------
+ansible -m raw -s -a "sudo apt-get install dstat -y" deb
+ansible -m raw -s -a "apt-get update -y " deb
+ansible -m raw -s -a "w" deb
+ansible -m raw -s -a "ps -aef" deb
+
+
