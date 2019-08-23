@@ -1,0 +1,17 @@
+---
+- name: ssh port security
+  hosts: nms
+  remote_user: sysadmin
+  become: yes
+  become_method: sudo
+  become_user: root
+  tasks:
+   - name: change the default ssh port
+     template: src=ssh_conf.j2 dest=/etc/ssh/sshd_config
+     notify: restart ssh
+
+  handlers:
+     - name: restart ssh
+       service:
+         name : sshd
+         state: restarted
