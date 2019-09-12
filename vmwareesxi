@@ -1,0 +1,32 @@
+esxtop
+
+By default the screen will be refreshed every 5 seconds, change this by typing:
+
+s 2
+Changing views is easy, type the following keys for the associated views:
+
+c = cpu
+m = memory
+n = network
+i = interrupts
+d = disk adapter
+u = disk device
+v = disk VM
+p = power mgmt
+x = vsan
+
+V = only show virtual machine worlds
+e = Expand/Rollup CPU statistics, show details of all worlds associated with group (GID)
+k = kill world, for tech support purposes only!
+l = limit display to a single group (GID), enables you to focus on one VM
+# = limiting the number of entitites, for instance the top 5
+
+2 = highlight a row, moving down
+8 = highlight a row, moving up
+4 = remove selected row from view
+e = statistics broken down per world
+6 = statistics broken down per world
+
+Capturing esxtop results
+
+esxtop -b -d 2 -n 100 > esxtopcapture.csv
