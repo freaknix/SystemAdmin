@@ -1,0 +1,19 @@
+#!/bin/bash
+#pre-requisit
+sudo apt-get update -y && sudo apt-get upgrade -y
+sudo apt-get install gdebi-core
+wget https://www.tableau.com/downloads/server/tableau-server-2019-1-10_amd64.deb
+sudo gdebi -n tableau-server-2019-1-10_amd64.deb
+
+sudo /opt/tableau/tableau_server/packages/scripts.20194.19.1105.1444/initialize-tsm --accepteula
+OR
+sudo /opt/tableau/tableau_server/packages/scripts.20194.19.1105.1444/initialize-tsm --accepteula -f
+
+sudo usermod -G tsmadmin -a sysadmin
+wget https://downloads.tableau.com/drivers/linux/deb/tableau-driver/tableau-postgresql-odbc_09.06.0501_amd64.deb
+sudo gdebi -n tableau-postgresql-odbc_09.06.0501_amd64.deb
+cd /opt/tableau/tableau_server/packages/scripts.20194.19.1105.1444/
+sudo ./after-install
+tsm settings import -f /opt/tableau/tableau_server/packages/scripts.20194.19.1105.1444/config.json
+tabcmd initialuser --server 'localhost:80' --username 'sysadmin' --password 'Psyops&*^'
+tsm maintenance metadata-services enable
