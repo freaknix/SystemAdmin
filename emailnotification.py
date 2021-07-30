@@ -10,7 +10,7 @@ import requests, datetime
 
 email_sender_account = "ashabbir@egenienext.com" #your email
 email_sender_username = "ashabbir@egenienext.com"  #your email username
-email_sender_password = "eGn3xt$#@!"#your email password
+email_sender_password = ""#your email password
 email_smtp_server = "mail.egenienext.com" #change if not gmail.
 email_smtp_port = 587 #change if needed.
 email_recepients = ["ashabbir@egenienext.com"] #your receipts
